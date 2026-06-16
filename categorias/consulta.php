@@ -27,13 +27,20 @@ $prp->execute();
                 </tr>
             </thead>
             <tbody>
-            <?php while($dscategoria = $prp->fetch(PDO::FETCH_ASSOC)) {?>
-                <tr>
-                    <td><?php echo $dscategoria['catnome']; ?></td>
-                    <td><?php echo $dscategoria['catativo']?'ATIVO':'INATIVO'; ?></td>
-                    <td>@mdo</td>
-                </tr>
-            <?php }?>
+                <?php while ($dscategoria = $prp->fetch(PDO::FETCH_ASSOC)) { ?>
+                    <tr>
+                        <td><?php echo $dscategoria['catnome']; ?></td>
+                        <td><?php echo $dscategoria['catativo'] ? 'ATIVO' : 'INATIVO'; ?></td>
+                        <td>
+                            <a href="altera.php?id=<?php echo $dscategoria['catid']; ?>" class="btn btn-outline-warning">
+                                <span>&#9998;</span>
+                            </a>
+                            <a href="exclui.php?id=<?php echo $dscategoria['catid']; ?>" class="btn btn-outline-danger">
+                                <span>&#128465;</span>
+                            </a>
+                        </td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>
